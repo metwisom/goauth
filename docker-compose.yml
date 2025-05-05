@@ -1,0 +1,28 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydb
+    command: postgres -c max_connections=200000 -c shared_buffers=512MB  # <- Здесь настройки
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    restart: always
+  goauth-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: goauth-app:latest
+    container_name: goauth-app
+    ports:
+      - "8080:8080"
+    env_file:
+      - backend/.env
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    restart: unless-stopped

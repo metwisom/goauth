@@ -1,0 +1,70 @@
+.auth_page {
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.title {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 4rem
+}
+
+.auth_form {
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 15px;
+}
+@media (max-width: 9968px) {
+  html{
+font-size:1vmin;
+  }
+
+}
+.auth_form input {
+  width: 100%;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+  border:0;
+  border-bottom: 2px solid #444444;
+  background-color: #2c2c2c;
+  font-size: 2rem;
+  color: #888;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  will-change: transform;
+}
+
+.auth_form input:focus {
+  outline: none;
+}
+
+.auth_form input::placeholder {
+  color: #777777;
+  opacity: 1;
+  transition: opacity 0.2s ease; /* Ускорена анимация */
+}
+
+.auth_form input:focus::placeholder {
+  opacity: 0.5;
+}
+
+.auth_form input[type=submit] {
+  width: auto;
+  display: block;
+  margin: 10px auto auto;
+  background-color: #e69500;
+  border: none;
+  color: #eee;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: none;
+}
+
+.auth_form input[type=submit]:hover {
+  background-color: #ffaa00;
+}
